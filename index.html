@@ -1,76 +1,48 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
     <head>
-        <meta charset="utf-8"/>
-        <title>JavaScript File Encryption App</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="   .js"></script>
-      <link href="   .js"  />
-        <link href=" " rel="stylesheet" />
+        <meta charset="UTF-8">
+        <title>File Encryption</title>
+        <link href="" rel="stylesheet">
+        <script src="" defer></script>
     </head>
-
+    
     <body>
-
-
-            <div id="step1">
-                <div class="content">
-                    <h1>What do you want to do?</h1>
-                    <a class="Encrypt">Encrypt a file</a>
-                    <a class="button decrypt magenta">Decrypt a file</a>
-                </div>
-            </div>
-
-            <div id="step2">
-
-                <div class="content if-encrypt">
-                    <h1>Choose which file to encrypt</h1>
-                    <h2>An encrypted copy of the file will be generated. No data is sent to our server.</h2>
-                    <a class="button browse blue">Browse</a>
-
-                    <input type="file" id="encrypt-input" />
-                </div>
-
-                <div class="content if-decrypt">
-                    <h1>Choose which file to decrypt</h1>
-                    <h2>Only files encrypted by this tool are accepted.</h2>
-                    <a class="button browse blue">Browse</a>
-
-                    <input type="file" id="decrypt-input" />
-                </div>
-
-            </div>
-
-            <div id="step3">
-
-                <div class="content if-encrypt">
-                    <h1>Enter a pass phrase</h1>
-                    <h2>This phrase will be used as an encryption key. Write it down or remember it; you won't be able to restore the file without it. </h2>
-
-                    <input type="password" />
-                    <a class="button process red">Encrypt!</a>
-                </div>
-
-                <div class="content if-decrypt">
-                    <h1>Enter the pass phrase</h1>
-                    <h2>Enter the pass phrase that was used to encrypt this file. It is not possible to decrypt it without it.</h2>
-
-                    <input type="password" />
-                    <a class="button process red">Decrypt!</a>
-                </div>
-
-            </div>
-
-            <div id="step4">
-
-                <div class="content">
-                    <h1>Your file is ready!</h1>
-                    <a class="button download green">Download</a>
-                </div>
-
-            </div>
-        </div>
-
+        <h1>Select either encrypt or decrypt</h1>
+            
+        <input type="radio" id="encrypt">
+        <label for="encrypt">Encrypt</label>
+        <input type="radio" id="decrypt">
+        <label for="decrypt">Decrypt</label>
+        <br>
+            
+        <h1>Select cipher type</h1>
+        
+        <input id="aes" type="radio" name="encoding" value="aes">
+        <label for="aes">AES</label>
+    
+        <input id="des" type="radio" name="encoding" value="des">
+        <label for="des">DES</label>
+    
+        <input id="rc4" type="radio" name="encoding" value="rc4">
+        <label for="rc4">RC4</label>
+    
+        <input id="blowfish" type="radio" name="encoding" value="blowfish">
+        <label for="blowfish">Blowfish</label>
+    
+        <input id="vig" type="radio" name="encoding" value="vig">
+        <label for="vig">Vigenere</label>
+        
+        <p id="info">To learn more about each cipher type, <a href="">Click here</a></p>
+        <br>
+        
+        <label for="encrypt-input">Select file: </label>
+        <input type="file" id="encrypt-input">
+        
+            
+            
+        
+    
     </body>
     
 </html>
