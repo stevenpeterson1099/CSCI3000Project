@@ -1,25 +1,25 @@
-function myFunction() {
-  
-}
+function myFunction () {
+  const ddl = document.getElementById('ciphers')
+  const selectedValue = ddl.options[ddl.selectedIndex].value
+  if (selectedValue === 'aes') {
+    function encodeAES () {
 
+    }
+  } else if (selectedValue === 'des') {
+    function encodeDES () {
 
+    }
+  } else if (selectedValue === 'rc4') {
+    function encodeRC4 () {
 
-function encodeAES() {
-  
-}
+    }
+  } else if (selectedValue === 'blowfish') {
+    function encodeBLOWFISH () {
 
-function encodeDES() {
-  
-}
+    }
+  } else if (selectedValue === 'vigenere') {
+    function encodeVIG () {
 
-function encodeRC4() {
-  
-}
-
-function encodeBLOWFISH() {
-  
-}
-
-function encodeVIG() {
-  
+    }
+  }
 }
