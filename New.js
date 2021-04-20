@@ -4,6 +4,8 @@
 	var objFile=null;
 	switchdiv('encrypt');
 
+
+	//encrypt and decrypt buttons
 	function switchdiv(t) {
 		if(t=='encrypt') {
 			divEncryptfile.style.display='block';
@@ -20,6 +22,7 @@
 		}
 	}
 
+	//checks if passwords are the same
 	function encvalidate() {
 		if(txtEncpassphrase.value.length>=8 && txtEncpassphrase.value==txtEncpassphraseretype.value) {
 		  spnCheckretype.classList.add("greenspan");
