@@ -44,6 +44,8 @@
 		if(mode=='encrypt') { encvalidate(); } else if(mode=='decrypt') { decvalidate(); }
 	}
 
+
+	//Displays what file was selected and the file size
 	function displayfile() {
 		var s;
 		var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
