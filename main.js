@@ -1,3 +1,9 @@
+	
+document.addEventListener("DOMContentLoaded", function(event) {
+	document.getElementById(btnDivEncrypt).click();
+});
+
+
 	var mode=null;
 	var objFile=null;
 	switchdiv('encrypt');
