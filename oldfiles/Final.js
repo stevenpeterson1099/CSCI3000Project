@@ -31,6 +31,12 @@ if(selectedValue === 'encrypt'){
 	
 	else if (selectedValue === 'des') {
     		function encodeDES () {
+			
+			reader.onload = function(e){
+
+                var encrypted = CryptoJS.TripeDES.encrypt(e.target.result, password);
+                a.attr('download', file.name + '.encrypted');
+            };
     		}
  	 } 
 	
