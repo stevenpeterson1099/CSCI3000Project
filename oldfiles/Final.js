@@ -58,7 +58,7 @@ if(selectedValue === 'encrypt'){
 
 //decrypt
 
-if(selectedValue === 'dencrypt'){
+if(selectedValue === 'decrypt'){
 	
   const ddl = document.getElementById('ciphers')
   const selectedValue = ddl.options[ddl.selectedIndex].value
