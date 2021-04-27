@@ -78,27 +78,70 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 //Encrypt
+
+if(selectedValue === 'encrypt'){
+	
+  const ddl = document.getElementById('ciphers')
+  const selectedValue = ddl.options[ddl.selectedIndex].value
+  	if (selectedValue === 'aes') {
+    		function encodeAES () {
+    		}
+  	} 
+	
+	else if (selectedValue === 'des') {
+    		function encodeDES () {
+    		}
+ 	 } 
+	
+	else if (selectedValue === 'rc4') {
+		function encoderc4 () {
+		}
+	}
+	  
+	else if (selectedValue === 'rabbit') {
+    		function encodeBLOWFISH () {
+    		}
+  	}
+	
+	else if (selectedValue === 'vigenere') {
+   		function encodeVIG () {
+    		}
+  	}
+  }
+
+//decrypt
+
+if(selectedValue === 'dencrypt'){
+	
   const ddl = document.getElementById('ciphers')
   const selectedValue = ddl.options[ddl.selectedIndex].value
   if (selectedValue === 'aes') {
     function encodeAES () {
-
-    }
-  } else if (selectedValue === 'des') {
-    function encodeDES () {
-
-    }
-  } else if (selectedValue === 'rc4') {
+    		}
+  	} 
+	
+	else if (selectedValue === 'des') {
+    		function dencodeDES () {
+    		}
+ 	 } 
+	
+	else if (selectedValue === 'rc4') {
+		function dencoderc4 () {
+		}
+	}
 	  
-    else if (selectedValue === 'rabbit') {
-    function encodeBLOWFISH () {
-
-    }
-  } else if (selectedValue === 'vigenere') {
-    function encodeVIG () {
-
-    }
+	else if (selectedValue === 'rabbit') {
+    		function dencodeBLOWFISH () {
+    		}
+  	}
+	
+	else if (selectedValue === 'vigenere') {
+   		function dencodeVIG () {
+    		}
+  	}
   }
+
+
 
 
 
