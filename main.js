@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   } else if (selectedValue === 'rc4') {
 	  
-    else if (selectedValue === 'blowfish') {
+    else if (selectedValue === 'rabbit') {
     function encodeBLOWFISH () {
 
     }
