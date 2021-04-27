@@ -1,4 +1,4 @@
-function myFunction () {
+/*function myFunction () {
   
   document.getElementById('encrypt-input').addEventListener('change', readFileAsString)
 function readFileAsString() {
@@ -16,7 +16,7 @@ function readFileAsString() {
 }
   
   
-  var reader = new FileReader();
+  var reader = new FileReader(); */
 
 //Encrypt
 	
