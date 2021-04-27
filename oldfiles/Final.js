@@ -100,5 +100,5 @@ if(selectedValue === 'dencrypt'){
 
 
 
-//aDecsavefile = ID of download button
-aDecsavefile.download=objFile.name + '.dec';
+//sub = ID of download button
+sub.download=objFile.name + '.dec';
