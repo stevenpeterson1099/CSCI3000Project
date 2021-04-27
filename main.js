@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 var reader = new FileReader();
 
-        if(body.hasClass('encrypt')){
+        function EncryptTripleDES{
 
             // Encrypt the file!
 
@@ -92,7 +92,7 @@ var reader = new FileReader();
                 // Use the CryptoJS library and the AES cypher to encrypt the 
                 // contents of the file, held in e.target.result, with the password
 
-                var encrypted = CryptoJS.RC4.encrypt(e.target.result, password);
+                var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password);
 
                 // The download attribute will cause the contents of the href
                 // attribute to be downloaded when clicked. The download attribute
