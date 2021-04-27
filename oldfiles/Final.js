@@ -19,6 +19,8 @@ function readFileAsString() {
   var reader = new FileReader();
 
 //Encrypt
+	
+function necrypt(){
 
 if(selectedValue === 'encrypt'){
 	
@@ -101,6 +103,7 @@ if(selectedValue === 'decrypt'){
     		}
   	}
   }
+}
 
 
 
