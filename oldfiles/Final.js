@@ -16,50 +16,85 @@ function readFileAsString() {
 }
   
   
+  var reader = new FileReader();
+
+//Encrypt
+
+if(selectedValue === 'encrypt'){
+	
+  const ddl = document.getElementById('ciphers')
+  const selectedValue = ddl.options[ddl.selectedIndex].value
+  	if (selectedValue === 'aes') {
+    		function encodeAES () {
+    		}
+  	} 
+	
+	else if (selectedValue === 'des') {
+    		function encodeDES () {
+    		}
+ 	 } 
+	
+	else if (selectedValue === 'rc4') {
+		function encoderc4 () {
+		}
+	}
+	  
+	else if (selectedValue === 'rabbit') {
+    		function encodeBLOWFISH () {
+    		}
+  	}
+	
+	else if (selectedValue === 'vigenere') {
+   		function encodeVIG () {
+    		}
+  	}
+  }
+
+//decrypt
+
+if(selectedValue === 'dencrypt'){
+	
   const ddl = document.getElementById('ciphers')
   const selectedValue = ddl.options[ddl.selectedIndex].value
   if (selectedValue === 'aes') {
     function encodeAES () {
+    		}
+  	} 
+	
+	else if (selectedValue === 'des') {
+    		function dencodeDES () {
+			
+			reader.onload = function(e){
 
-    }
-  } else if (selectedValue === 'des') {
-    function encodeDES () {
+                // Use the CryptoJS library and the AES cypher to encrypt the 
+                // contents of the file, held in e.target.result, with the password
 
-    }
-  } else if (selectedValue === 'rc4') {
-    function rc4(key, str) {
-	var s = [], j = 0, x, res = '';
-	for (var i = 0; i < 256; i++) {
-		s[i] = i;
+                var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password)
+               
+            };
+
+            // This will encode the contents of the file into a data-uri.
+            // It will trigger the onload handler above, with the result
+
+            reader.readAsDataURL(file);
+    		}
+ 	 } 
+	
+	else if (selectedValue === 'rc4') {
+		function dencoderc4 () {
+		}
 	}
-	for (i = 0; i < 256; i++) {
-		j = (j + s[i] + key.charCodeAt(i % key.length)) % 256;
-		x = s[i];
-		s[i] = s[j];
-		s[j] = x;
-	}
-	i = 0;
-	j = 0;
-	for (var y = 0; y < str.length; y++) {
-		i = (i + 1) % 256;
-		j = (j + s[i]) % 256;
-		x = s[i];
-		s[i] = s[j];
-		s[j] = x;
-		res += String.fromCharCode(str.charCodeAt(y) ^ s[(s[i] + s[j]) % 256]);
-	}
-	return res;
-}
-  } else if (selectedValue === 'blowfish') {
-    function encodeBLOWFISH () {
-
-    }
-  } else if (selectedValue === 'vigenere') {
-    function encodeVIG () {
-
-    }
+	  
+	else if (selectedValue === 'rabbit') {
+    		function dencodeBLOWFISH () {
+    		}
+  	}
+	
+	else if (selectedValue === 'vigenere') {
+   		function dencodeVIG () {
+    		}
+  	}
   }
-}
 
 
 
