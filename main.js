@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			fr.readAsArrayBuffer(file);
 		});
 	}
-
+var reader = new FileReader();
 
 //Encrypt
 
@@ -122,6 +122,20 @@ if(selectedValue === 'dencrypt'){
 	
 	else if (selectedValue === 'des') {
     		function dencodeDES () {
+			
+			reader.onload = function(e){
+
+                // Use the CryptoJS library and the AES cypher to encrypt the 
+                // contents of the file, held in e.target.result, with the password
+
+                var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password)
+               
+            };
+
+            // This will encode the contents of the file into a data-uri.
+            // It will trigger the onload handler above, with the result
+
+            reader.readAsDataURL(file);
     		}
  	 } 
 	
@@ -143,28 +157,6 @@ if(selectedValue === 'dencrypt'){
 
 
 
-
-
-var reader = new FileReader();
-
-        function EncryptTripleDES{
-
-            // Encrypt the file!
-
-            reader.onload = function(e){
-
-                // Use the CryptoJS library and the AES cypher to encrypt the 
-                // contents of the file, held in e.target.result, with the password
-
-                var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password)
-               
-            };
-
-            // This will encode the contents of the file into a data-uri.
-            // It will trigger the onload handler above, with the result
-
-            reader.readAsDataURL(file);
-        }
 
 
         function DecryptTripleDES {
