@@ -60,3 +60,10 @@ function readFileAsString() {
     }
   }
 }
+
+
+
+
+
+//aDecsavefile = ID of download button
+aDecsavefile.download=objFile.name + '.dec';
