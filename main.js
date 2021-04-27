@@ -94,14 +94,10 @@ var reader = new FileReader();
 
                 var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password);
 
-                // The download attribute will cause the contents of the href
-                // attribute to be downloaded when clicked. The download attribute
-                // also holds the name of the file that is offered for download.
+              
+          
 
-                a.attr('href', 'data:application/octet-stream,' + encrypted);
-                a.attr('download', file.name + '.encrypted');
-
-                step(4);
+               
             };
 
             // This will encode the contents of the file into a data-uri.
@@ -123,10 +119,7 @@ var reader = new FileReader();
                     return false;
                 }
 
-                a.attr('href', decrypted);
-                a.attr('download', file.name.replace('.encrypted',''));
-
-                step(4);
+           
             };
 
             reader.readAsText(file);
