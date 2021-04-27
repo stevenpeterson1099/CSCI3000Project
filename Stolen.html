@@ -74,12 +74,11 @@
 				<div class="divTableBody">
 					<div class="divTableRow">
 						<div class="divTableCell" style="float: left;">
-							<h1>Web Browser Based File Encryption / Decryption</h1>
+							<h1>NeCrypt</h1>
 							<h4>Use your web browser to encrypt and decrypt files.</h4>
 						</div>
 						<div class="divTableCell" style="float: right;">
 							<h1>
-							<button id="btnRefresh" onClick="javascript:location.reload();">Refresh Page</button>
 							<button id="btnDivEncrypt" onClick="javascript:switchdiv('encrypt');">Encrypt a File</button>
 							<button id="btnDivDecrypt" onClick="javascript:switchdiv('decrypt');">Decrypt a File</button>
 							</h1>
@@ -92,21 +91,33 @@
 
 		<div class=container>
 			<hr>
-		</div>
+		
+
+		<h2>Select cipher type:</h2>
+					<select>
+					
+					<option value="aes" id="aes">AES</option>
+					<option value="des" id="des">DES</option>
+					<option value="rc4" id="rc4">RC4</option>
+					<option value="blowfish" id="blowfish" >Blowfish</option>
+					<option value="vigenere" id="vigenere">Vigenere</option>
+			
+		  	</select>
+			  </div>
 
 		<div class="container" id=divEncryptfile>
 			<h2>Encrypt a File</h2>
-			<p>To encrypt a file, enter a password and drop the file to be encrypted into the dropzone below.  The file will then be encrypted using the password, then you'll be given an opportunity to save the encrypted file to your system.</p>
+			<p>To encrypt a file, enter a password and select the file to be encrypted.  The file will then be encrypted using the password, then you'll be given an opportunity to save the encrypted file to your system.</p>
 
 			<div class="divTable">
 				<div class="divTableBody">
 					<div class="divTableRow">
 						<div class="divTableCell">Password</div>
 						<div class="divTableCell"><input id=txtEncpassphrase type=password size=30 onkeyup=javascript:encvalidate(); value=''></div>
-						<div class="divTableCell">(minumum length eight characters, make sure it strong!)</div>
+						<div class="divTableCell">(minumum length eight characters)</div>
 					</div>
 					<div class="divTableRow">
-						<div class="divTableCell">Password (retype)</div>
+						<div class="divTableCell">Password (confirm)</div>
 						<div class="divTableCell"><input id=txtEncpassphraseretype type=password size=30 onkeyup=javascript:encvalidate(); value=''></div>
 						<div class="divTableCell"><span class=greenspan id=spnCheckretype></span></div>
 					</div>
@@ -117,7 +128,7 @@
 
 			<div>
 				<div class=dropzone id="encdropzone" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragend="dragend_handler(event);">
-					<p>Drag and drop the file to be encrypted into this dropzone, or click <a onclick=javascript:encfileElem.click();>here</a> to select file.</p>
+					<p>click <a onclick=javascript:encfileElem.click();>here</a> to select file.</p>
 					<p><span id=spnencfilename></span></p>
 				</div>
 				<input type="file" id="encfileElem" style="display:none" onchange="selectfile(this.files)">
@@ -160,7 +171,7 @@
 
 			<div>
 					<div class=dropzone  id="decdropzone" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" ondragend="dragend_handler(event);">
-						<p>Drag and drop file to be decrypted into this dropzone, or click <a role=button onclick=javascript:decfileElem.click();>here</a> to select file.</p>
+						<p>click <a role=button onclick=javascript:decfileElem.click();>here</a> to select file.</p>
 						<p><span id=spndecfilename></span></p>
 					</div>
 					<input type="file" id="decfileElem" style="display:none" onchange="selectfile(this.files)">
@@ -186,58 +197,7 @@
 			<p> </p>
 		</div>
 
-		<div class="container">
-			<hr>
-			<h3>Usage</h3>
-			<p>
-			Use this web page to encrypt a file using a password, then use the same password later to decrypt the file.  IMPORTANT:  The same password that was used to encrypt the file must be used to decrypt the file later. If you loose or forget the password, it cannot be recovered!
-			</p>
-
-			<h3>Operation and privacy</h3>
-			<p>
-				This page uses javascript running within your web browser to encrypt and decrypt files.  Your files and password do not leave your web browser during the process.
-				This can be independently verified by reviewing the source code for this page, or by monitoring your web browser's <a href='https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor'>networking activity</a> during operation of this page.  This page can also be downloaded and run locally on your system offline.				
-			</p>
-
-			<h3>Cryptography</h3>
-			<p>
-				All cryptography operations are implemented using using the <a href='https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API'>Web Crypto API</a>.  
-				Files are encrypted using AES-CBC 256-bit symmetric encryption.  The encryption key is derived from the password and a random salt using PBKDF2 derivation with 10000 iterations of SHA256 hashing.
-			</p>	
-
-			<h3>Compatibility with openssl</h3>
-			<p>	
-				The encryption used by this page is compatible with <a href='https://www.openssl.org/docs/man1.1.1/man1/openssl-enc.html'>openssl</a>.<BR>
-				<BR>
-				Files encrypted using this page can be decrypted using openssl using the following command:<BR>
-				<span class='black10pointcourier'>openssl aes-256-cbc -d -salt -pbkdf2 -iter 10000 -in <i>encryptedfilename</i> -out <i>plaintextfilename</i></span><BR>
-				<BR>
-				Files encrypted using the following openssl command can be decrypted using this page:<BR>
-				<span class='black10pointcourier'>openssl aes-256-cbc -e -salt -pbkdf2 -iter 10000 -in <i>plaintextfilename</i> -out <i>encryptedfilename</i></span><BR>
-			</p>	
-
-			<h3>Running this page offline</h3>
-			<p>
-				This web page is self-contained.  The page does not require any supporting files; all javascript and css for this page is contained in the source code of this page.
-				To run this page locally on your system offline, simply save this page to your system as a .html file, then open the file from your system in your web browser (optionally with networking disabled).
-			</p>
-
-			<h3>License</h3>
-			<p>
-				This project is licensed under the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GPL-3.0</a> open source license.
-			</p>
-
-			<h3>GitHub</h3>
-			<p>
-				This project can be found on GitHub at <a href=https://github.com/meixler/web-browser-based-file-encryption-decryption>https://github.com/meixler/web-browser-based-file-encryption-decryption</a>.
-			</p>
-			
-			<h3>Contact</h3>
-			<p>
-			Please <a href='https://www.meixler-tech.com/contact.php'>contact MTI</a> for any questions or comments concerning this project.
-			</p>
-
-		</div>
+		
 		<BR>
 	</body>
 </html>
@@ -284,51 +244,7 @@
 
 	//drag and drop functions:
 	//https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop
-	function drop_handler(ev) {
-		console.log("Drop");
-		ev.preventDefault();
-		// If dropped items aren't files, reject them
-		var dt = ev.dataTransfer;
-		if (dt.items) {
-			// Use DataTransferItemList interface to access the file(s)
-			for (var i=0; i < dt.items.length; i++) {
-				if (dt.items[i].kind == "file") {
-					var f = dt.items[i].getAsFile();
-					console.log("... file[" + i + "].name = " + f.name);
-					objFile=f;
-				}
-			}
-		} else {
-			// Use DataTransfer interface to access the file(s)
-			for (var i=0; i < dt.files.length; i++) {
-				console.log("... file[" + i + "].name = " + dt.files[i].name);
-			}  
-			objFile=file[0];
-		}		 
-		displayfile()
-		if(mode=='encrypt') { encvalidate(); } else if(mode=='decrypt') { decvalidate(); }
-	}
-
-	function dragover_handler(ev) {
-		console.log("dragOver");
-		// Prevent default select and drag behavior
-		ev.preventDefault();
-	}
-
-	function dragend_handler(ev) {
-		console.log("dragEnd");
-		// Remove all of the drag data
-		var dt = ev.dataTransfer;
-		if (dt.items) {
-			// Use DataTransferItemList interface to remove the drag data
-			for (var i = 0; i < dt.items.length; i++) {
-				dt.items.remove(i);
-			}
-		} else {
-			// Use DataTransfer interface to remove the drag data
-			ev.dataTransfer.clearData();
-		}
-	}
+	
 
 	function selectfile(Files) {
 		objFile=Files[0];
@@ -349,7 +265,6 @@
 			spndecfilename.textContent=objFile.name + ' (' + s + ')'; 
 		} 
 	}
-	//file
 
 	function readfile(file){
 		return new Promise((resolve, reject) => {
@@ -389,7 +304,7 @@
 
 		keybytes=pbkdf2bytes.slice(0,32);
 		ivbytes=pbkdf2bytes.slice(32);
-//aes
+
 		var key=await window.crypto.subtle.importKey('raw', keybytes, {name: 'AES-CBC', length: 256}, false, ['encrypt']) 
 		.catch(function(err){
 			console.error(err);
@@ -424,6 +339,10 @@
 		spnEncstatus.innerHTML='<p>File encrypted.</p>';
 		aEncsavefile.hidden=false;
 	}
+
+
+	// decrpyt
+
 
 	async function decryptfile() {
 		btnDecrypt.disabled=true;
