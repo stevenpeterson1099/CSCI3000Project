@@ -92,11 +92,7 @@ var reader = new FileReader();
                 // Use the CryptoJS library and the AES cypher to encrypt the 
                 // contents of the file, held in e.target.result, with the password
 
-                var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password);
-
-              
-          
-
+                var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password)
                
             };
 
@@ -105,7 +101,9 @@ var reader = new FileReader();
 
             reader.readAsDataURL(file);
         }
-        else {
+
+
+        function DecryptTripleDES {
 
             // Decrypt it!
 
@@ -114,14 +112,8 @@ var reader = new FileReader();
                 var decrypted = CryptoJS.RC4.decrypt(e.target.result, password)
                                         .toString(CryptoJS.enc.Latin1);
 
-                if(!/^data:/.test(decrypted)){
-                    alert("Invalid pass phrase or file! Please try again.");
-                    return false;
                 }
-
-           
             };
-
             reader.readAsText(file);
         }
     });
