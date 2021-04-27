@@ -6,7 +6,7 @@ function readFileAsString() {
     if (files.length === 0) {
         console.log('No file is selected');
         return;
-    }
+    } */
 
     let reader = new FileReader();
     reader.onload = function(event) {
@@ -16,7 +16,7 @@ function readFileAsString() {
 }
   
   
-  var reader = new FileReader(); */
+  var reader = new FileReader(); 
 
 //Encrypt
 	
