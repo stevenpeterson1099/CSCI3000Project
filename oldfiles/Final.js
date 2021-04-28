@@ -6,7 +6,6 @@ var selectedValue = document.getElementById("ciphers").value;
 if(document.getElementById("encrypt").checked){
 	
   	if (selectedValue === 'aes') {
-    		function encodeAES () {
 			
 			reader.onload = function(encodeAES){
 
@@ -16,18 +15,17 @@ if(document.getElementById("encrypt").checked){
   	} 
 	
 	else if (selectedValue === 'des') {
-    		function encodeDES () {
+    		
 			
 			reader.onload = function(encodeDES){
 
                 var encrypted = CryptoJS.TripeDES.encrypt(e.target.result, password);
                 a.attr('download', file.name + '.encrypted');
-            };
+            
     		}
  	 } 
 	
 	else if (selectedValue === 'rc4') {
-		function encoderc4 (encoderc4) {
 			
 			reader.onload = function(e){
 
@@ -37,7 +35,6 @@ if(document.getElementById("encrypt").checked){
 	}
 	  
 	else if (selectedValue === 'rabbit') {
-    		function encoderabbit () {
 			
 			reader.onload = function(encoderabbit){
 
