@@ -32,7 +32,7 @@ if(document.getElementById("encrypt").checked){
   	reader.onload = function() {
    	 var encrypted = CryptoJS.TripeAES.encrypt(reader.result, password);
                 a.attr('download', file.name + '.encrypted');
-  	};
+  	}
 		
 			
 			reader.onload = function(){
