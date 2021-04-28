@@ -27,10 +27,8 @@ var selectedValue = document.getElementById("ciphers").value
 	
 function necrypt(){
 
-if(selectedValue === 'encrypt'){
+if(document.getElementById("encrypt").checked){
 	
-  const ddl = document.getElementById('ciphers')
-  const selectedValue = ddl.options[ddl.selectedIndex].value
   	if (selectedValue === 'aes') {
     		function encodeAES () {
 			
