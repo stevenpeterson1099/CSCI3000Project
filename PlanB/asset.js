@@ -180,7 +180,7 @@ $(function(){
                 }
 
                 a.attr('href', decrypted);
-                a.attr('download', file.name.replace('.encrypted',''));
+                a.attr('download', file.name.replace('.encryptedDes',''));
 
                 step(4);
             };
@@ -201,7 +201,7 @@ $(function(){
                 }
 
                 a.attr('href', decrypted);
-                a.attr('download', file.name.replace('.encrypted',''));
+                a.attr('download', file.name.replace('.encryptedAes',''));
 
                 step(4);
             };
@@ -222,7 +222,7 @@ $(function(){
                 }
 
                 a.attr('href', decrypted);
-                a.attr('download', file.name.replace('.encrypted',''));
+                a.attr('download', file.name.replace('.encryptedRc4',''));
 
                 step(4);
             };
@@ -242,7 +242,7 @@ $(function(){
                 }
 
                 a.attr('href', decrypted);
-                a.attr('download', file.name.replace('.encrypted',''));
+                a.attr('download', file.name.replace('.encryptedRabbit',''));
 
                 step(4);
             };
