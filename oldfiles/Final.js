@@ -24,16 +24,14 @@ if(document.getElementById("encrypt").checked){
 	
   	if (selectedValue === 'aes') {
 		
-		function readFile(input) {
-  	let file = input.files[0];
 
-  	reader.readAsText(file);
 
-  	reader.onload = function() {
+  	reader.onload = function(e) {
    	 var encrypted = CryptoJS.AES.encrypt(reader.result, password);
 		 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encrypted');
   	};
+		reader.readAsDataURL(file);
 		
 			
 			
@@ -50,6 +48,7 @@ if(document.getElementById("encrypt").checked){
                 a.attr('download', file.name + '.encrypted');
             
     		}
+		reader.readAsDataURL(file);
  	 } 
 	
 	else if (selectedValue === 'rc4') {
@@ -60,6 +59,7 @@ if(document.getElementById("encrypt").checked){
 		a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encrypted');
 		}
+		reader.readAsDataURL(file);
 	}
 	  
 	else if (selectedValue === 'rabbit') {
@@ -70,6 +70,7 @@ if(document.getElementById("encrypt").checked){
 		 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encrypted');
     		}
+		reader.readAsDataURL(file);
   	}
 	
 	else if (selectedValue === 'vigenere') {
