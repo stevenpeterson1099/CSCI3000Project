@@ -97,7 +97,7 @@ $(function(){
                 // also holds the name of the file that is offered for download.
 
                 a.attr('href', 'data:application/octet-stream,' + encrypted);
-                a.attr('download', file.name + '.encrypted');
+                a.attr('download', file.name + '.encryptedAes');
 
                 step(4);
             };
@@ -114,7 +114,7 @@ $(function(){
                 var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password);
 
                 a.attr('href', 'data:application/octet-stream,' + encrypted);
-                a.attr('download', file.name + '.encrypted');
+                a.attr('download', file.name + '.encryptedDes');
 
                 step(4);
             };
@@ -128,7 +128,7 @@ $(function(){
                 var encrypted = CryptoJS.RC4.encrypt(e.target.result, password);
 
                 a.attr('href', 'data:application/octet-stream,' + encrypted);
-                a.attr('download', file.name + '.encrypted');
+                a.attr('download', file.name + '.encryptedRc4');
 
                 step(4);
             };
@@ -143,7 +143,7 @@ $(function(){
                 var encrypted = CryptoJS.Rabbit.encrypt(e.target.result, password);
 
                 a.attr('href', 'data:application/octet-stream,' + encrypted);
-                a.attr('download', file.name + '.encrypted');
+                a.attr('download', file.name + '.encryptedRabbit');
 
                 step(4);
             };
