@@ -1,4 +1,19 @@
 // Maybe Try if(document.getElementById("des").selected = true){}  or  var selectedValue = document.getElementById("ciphers").value, if(selectedValue = des){
+
+/*<input type="file" onchange="readFile(this)">
+
+<script>
+function readFile(input) {
+  let file = input.files[0];
+
+  let reader = new FileReader();
+
+  reader.readAsText(file);
+
+  reader.onload = function() {
+    console.log(reader.result);
+  };
+	*/
 function necrypt(){
 var reader = new FileReader(); 
 var selectedValue = document.getElementById("ciphers").value;
