@@ -13,8 +13,7 @@ function readFileAsString() {
         console.log('File content:', event.target.result);
     };
     reader.readAsText(files[0]);
-}
-  
+
   
   var reader = new FileReader(); 
 
