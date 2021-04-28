@@ -33,6 +33,11 @@ if(selectedValue === 'encrypt'){
   const selectedValue = ddl.options[ddl.selectedIndex].value
   	if (selectedValue === 'aes') {
     		function encodeAES () {
+			
+			reader.onload = function(e){
+
+                var encrypted = CryptoJS.TripeAES.encrypt(e.target.result, password);
+                a.attr('download', file.name + '.encrypted');
     		}
   	} 
 	
@@ -49,11 +54,21 @@ if(selectedValue === 'encrypt'){
 	
 	else if (selectedValue === 'rc4') {
 		function encoderc4 () {
+			
+			reader.onload = function(e){
+
+                var encrypted = CryptoJS.RC4.encrypt(e.target.result, password);
+                a.attr('download', file.name + '.encrypted');
 		}
 	}
 	  
 	else if (selectedValue === 'rabbit') {
     		function encodeBLOWFISH () {
+			
+			reader.onload = function(e){
+
+                var encrypted = CryptoJS.rabbit.encrypt(e.target.result, password);
+                a.attr('download', file.name + '.encrypted');
     		}
   	}
 	
