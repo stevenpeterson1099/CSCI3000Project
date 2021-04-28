@@ -30,16 +30,12 @@ if(document.getElementById("encrypt").checked){
   	reader.readAsText(file);
 
   	reader.onload = function() {
-   	 var encrypted = CryptoJS.TripeAES.encrypt(reader.result, password);
+   	 var encrypted = CryptoJS.AES.encrypt(reader.result, password);
                 a.attr('download', file.name + '.encrypted');
   	};
 		
 			
-			reader.onload = function(){
-
-                var encrypted = CryptoJS.TripeAES.encrypt(reader.result, password);
-                a.attr('download', file.name + '.encrypted');
-    		}
+			
   	}
 	}
 	
@@ -48,7 +44,7 @@ if(document.getElementById("encrypt").checked){
 			
 			reader.onload = function(encodeDES){
 
-                var encrypted = CryptoJS.TripeDES.encrypt(e.target.result, password);
+                var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password);
                 a.attr('download', file.name + '.encrypted');
             
     		}
