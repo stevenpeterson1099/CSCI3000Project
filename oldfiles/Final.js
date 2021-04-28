@@ -118,7 +118,7 @@ if(selectedValue === 'decrypt'){
   //download("hello.txt","This is the content of my file :)");
 
 
-}
+
 
 function download(filename, text) {
   var element = document.createElement('a');
