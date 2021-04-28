@@ -2,7 +2,8 @@
 function necrypt(){
 var reader = new FileReader(); 
 var selectedValue = document.getElementById("ciphers").value;
-let password = document.getElementById("pwd")
+let password = document.getElementById("pwd");
+let subm = document.getElementById("sub");
 
 if(document.getElementById("encrypt").checked){
 	
@@ -102,4 +103,4 @@ if(selectedValue === 'decrypt'){
 
 
 //sub = ID of download button
-sub.download=objFile.name + '.dec';
+subm.download=objFile.name + '.dec';
