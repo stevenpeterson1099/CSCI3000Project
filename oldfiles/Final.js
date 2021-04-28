@@ -88,18 +88,8 @@ if(selectedValue === 'decrypt'){
 	else if (selectedValue === 'des') {
     		function dencodeDES () {
 			
-			reader.onload = function(dencodeDES){
-
-                // Use the CryptoJS library and the AES cypher to encrypt the 
-                // contents of the file, held in e.target.result, with the password
-
-                var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password)
-               
-            };
-
-            // This will encode the contents of the file into a data-uri.
-            // It will trigger the onload handler above, with the result
-
+			var decrypted = CryptoJS.TripleDES.decrypt(e.target.result, password)
+                                        .toString(CryptoJS.enc.Latin1);
             reader.readAsDataURL(file);
     		}
  	 } 
