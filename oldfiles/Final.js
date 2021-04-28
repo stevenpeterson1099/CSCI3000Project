@@ -133,7 +133,9 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
-/* var blob=new Blob([plaintextbytes], {type: 'application/download'});
+/* 
+var plaintextbytes=  CryptoJS.RC4.encrypt(e.target.result, password);
+var blob=new Blob([plaintextbytes], {type: 'application/download'});
 		var blobUrl=URL.createObjectURL(blob);
 		aDecsavefile.href=blobUrl;
 		aDecsavefile.download=objFile.name + '.dec';
