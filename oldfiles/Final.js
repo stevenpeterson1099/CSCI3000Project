@@ -19,6 +19,9 @@ function readFileAsString() {
   var reader = new FileReader(); 
 
 //Encrypt
+
+
+// Maybe Try if(document.getElementById("des").selected = true){
 	
 function necrypt(){
 
