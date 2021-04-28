@@ -1,37 +1,17 @@
-/*function myFunction () {
-  
-  document.getElementById('encrypt-input').addEventListener('change', readFileAsString)
-function readFileAsString() {
-    let files = this.files;
-    if (files.length === 0) {
-        console.log('No file is selected');
-        return;
-    } */
-
-    let reader = new FileReader();
-    reader.onload = function(event) {
-        console.log('File content:', event.target.result);
-    };
-    reader.readAsText(files[0]);
-
-  
-  var reader = new FileReader(); 
-
-//Encrypt
-
-
 // Maybe Try if(document.getElementById("des").selected = true){}  or  var selectedValue = document.getElementById("ciphers").value, if(selectedValue = des){
 
 var selectedValue = document.getElementById("ciphers").value
 	
 function necrypt(){
+var reader = new FileReader(); 
+var selectedValue = document.getElementById("ciphers").value;
 
 if(document.getElementById("encrypt").checked){
 	
   	if (selectedValue === 'aes') {
     		function encodeAES () {
 			
-			reader.onload = function(e){
+			reader.onload = function(encodeAES){
 
                 var encrypted = CryptoJS.TripeAES.encrypt(e.target.result, password);
                 a.attr('download', file.name + '.encrypted');
@@ -41,7 +21,7 @@ if(document.getElementById("encrypt").checked){
 	else if (selectedValue === 'des') {
     		function encodeDES () {
 			
-			reader.onload = function(e){
+			reader.onload = function(encodeDES){
 
                 var encrypted = CryptoJS.TripeDES.encrypt(e.target.result, password);
                 a.attr('download', file.name + '.encrypted');
@@ -50,7 +30,7 @@ if(document.getElementById("encrypt").checked){
  	 } 
 	
 	else if (selectedValue === 'rc4') {
-		function encoderc4 () {
+		function encoderc4 (encoderc4) {
 			
 			reader.onload = function(e){
 
@@ -60,9 +40,9 @@ if(document.getElementById("encrypt").checked){
 	}
 	  
 	else if (selectedValue === 'rabbit') {
-    		function encodeBLOWFISH () {
+    		function encoderabbit () {
 			
-			reader.onload = function(e){
+			reader.onload = function(encoderabbit){
 
                 var encrypted = CryptoJS.rabbit.encrypt(e.target.result, password);
                 a.attr('download', file.name + '.encrypted');
@@ -89,7 +69,7 @@ if(selectedValue === 'decrypt'){
 	else if (selectedValue === 'des') {
     		function dencodeDES () {
 			
-			reader.onload = function(e){
+			reader.onload = function(dencodeDES){
 
                 // Use the CryptoJS library and the AES cypher to encrypt the 
                 // contents of the file, held in e.target.result, with the password
