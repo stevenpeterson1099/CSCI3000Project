@@ -164,9 +164,10 @@ $(function(){
 
     }
         
-        else if (body.hasClass('decrypt')){
+        if (body.hasClass('decrypt')){
 
             // Decrypt it!
+            if(selectedValue === "des"){
 
             reader.onload = function(e){
 
@@ -185,7 +186,75 @@ $(function(){
             };
 
             reader.readAsText(file);
+
         }
+
+        if (selectedValue === "aes") {
+            reader.onload = function(e){
+
+                var decrypted = CryptoJS.AES.decrypt(e.target.result, password)
+                                        .toString(CryptoJS.enc.Latin1);
+
+                if(!/^data:/.test(decrypted)){
+                    alert("Invalid pass phrase or file! Please try again.");
+                    return false;
+                }
+
+                a.attr('href', decrypted);
+                a.attr('download', file.name.replace('.encrypted',''));
+
+                step(4);
+            };
+
+            reader.readAsText(file);
+
+
+        }
+        if (selectedValue === "rc4") {
+             reader.onload = function(e){
+
+                var decrypted = CryptoJS.RC4.decrypt(e.target.result, password)
+                                        .toString(CryptoJS.enc.Latin1);
+
+                if(!/^data:/.test(decrypted)){
+                    alert("Invalid pass phrase or file! Please try again.");
+                    return false;
+                }
+
+                a.attr('href', decrypted);
+                a.attr('download', file.name.replace('.encrypted',''));
+
+                step(4);
+            };
+
+            reader.readAsText(file);
+        }
+
+        if (selectedValue === "rabbit") {
+            reader.onload = function(e){
+
+                var decrypted = CryptoJS.Rabbit.decrypt(e.target.result, password)
+                                        .toString(CryptoJS.enc.Latin1);
+
+                if(!/^data:/.test(decrypted)){
+                    alert("Invalid pass phrase or file! Please try again.");
+                    return false;
+                }
+
+                a.attr('href', decrypted);
+                a.attr('download', file.name.replace('.encrypted',''));
+
+                step(4);
+            };
+
+            reader.readAsText(file);
+        }
+
+        }
+
+
+    
+
     });
 
 
