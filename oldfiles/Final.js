@@ -21,7 +21,7 @@ function readFileAsString() {
 //Encrypt
 
 
-// Maybe Try if(document.getElementById("des").selected = true){
+// Maybe Try if(document.getElementById("des").selected = true){}  or  var selectedValue = document.getElementById("select1").value, if(selectedValue = des){
 	
 function necrypt(){
 
