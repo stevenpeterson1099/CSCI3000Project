@@ -53,13 +53,11 @@ if(document.getElementById("encrypt").checked){
 	
 	else if (selectedValue === 'rc4') {
 			
-			reader.onload = function(e){
-
-                var encrypted = CryptoJS.RC4.encrypt(e.target.result, password);
-		a.attr('href', 'data:application/octet-stream,' + encrypted);
-                a.attr('download', file.name + '.encrypted');
-		}
-		reader.readAsDataURL(file);
+var plaintextbytes=  CryptoJS.RC4.encrypt(reader.result, password);
+var blob=new Blob([plaintextbytes], {type: 'application/download'});
+		var blobUrl=URL.createObjectURL(blob);
+		aDecsavefile.href=blobUrl;
+		aDecsavefile.download=objFile.name + '.dec';
 	}
 	  
 	else if (selectedValue === 'rabbit') {
