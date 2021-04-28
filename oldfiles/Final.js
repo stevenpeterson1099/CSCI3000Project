@@ -32,7 +32,7 @@ if(document.getElementById("encrypt").checked){
   	reader.onload = function() {
    	 var encrypted = CryptoJS.TripeAES.encrypt(reader.result, password);
                 a.attr('download', file.name + '.encrypted');
-  	}
+  	};
 		
 			
 			reader.onload = function(){
@@ -40,7 +40,8 @@ if(document.getElementById("encrypt").checked){
                 var encrypted = CryptoJS.TripeAES.encrypt(reader.result, password);
                 a.attr('download', file.name + '.encrypted');
     		}
-  	} 
+  	}
+	}
 	
 	else if (selectedValue === 'des') {
     		
@@ -79,7 +80,7 @@ if(document.getElementById("encrypt").checked){
 
 //decrypt
 
-if(selectedValue === 'decrypt'){
+else if(selectedValue === 'decrypt'){
 	
   const ddl = document.getElementById('ciphers')
   const selectedValue = ddl.options[ddl.selectedIndex].value
@@ -122,11 +123,21 @@ if(selectedValue === 'decrypt'){
     		}
   	}
   }
+  
+  //download("hello.txt","This is the content of my file :)");
+
+
 }
 
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
 
+  element.style.display = 'none';
+  document.body.appendChild(element);
 
+  element.click();
 
-
-//sub = ID of download button
-subm.download=objFile.name + '.dec';
+  document.body.removeChild(element);
+}
