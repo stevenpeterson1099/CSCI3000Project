@@ -23,10 +23,21 @@ let subm = document.getElementById("sub");
 if(document.getElementById("encrypt").checked){
 	
   	if (selectedValue === 'aes') {
-			
-			reader.onload = function(encodeAES){
+		
+		function readFile(input) {
+  	let file = input.files[0];
 
-                var encrypted = CryptoJS.TripeAES.encrypt(e.target.result, password);
+  	reader.readAsText(file);
+
+  	reader.onload = function() {
+   	 var encrypted = CryptoJS.TripeAES.encrypt(reader.result, password);
+                a.attr('download', file.name + '.encrypted');
+  	};
+		
+			
+			reader.onload = function(){
+
+                var encrypted = CryptoJS.TripeAES.encrypt(reader.result, password);
                 a.attr('download', file.name + '.encrypted');
     		}
   	} 
