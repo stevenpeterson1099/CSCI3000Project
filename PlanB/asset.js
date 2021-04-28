@@ -136,6 +136,22 @@ $(function(){
             reader.readAsDataURL(file);
         }
 
+            
+          if(selectedValue === "rabbit"){
+            reader.onload = function(e){
+
+                var encrypted = CryptoJS.Rabbit.encrypt(e.target.result, password);
+
+                a.attr('href', 'data:application/octet-stream,' + encrypted);
+                a.attr('download', file.name + '.encrypted');
+
+                step(4);
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+
 
 
 
