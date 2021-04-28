@@ -2,6 +2,7 @@
 function necrypt(){
 var reader = new FileReader(); 
 var selectedValue = document.getElementById("ciphers").value;
+let password = document.getElementById("
 
 if(document.getElementById("encrypt").checked){
 	
