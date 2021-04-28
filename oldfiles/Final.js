@@ -1,7 +1,4 @@
 // Maybe Try if(document.getElementById("des").selected = true){}  or  var selectedValue = document.getElementById("ciphers").value, if(selectedValue = des){
-
-var selectedValue = document.getElementById("ciphers").value
-	
 function necrypt(){
 var reader = new FileReader(); 
 var selectedValue = document.getElementById("ciphers").value;
