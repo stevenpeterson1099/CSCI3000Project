@@ -31,6 +31,7 @@ if(document.getElementById("encrypt").checked){
 
   	reader.onload = function() {
    	 var encrypted = CryptoJS.AES.encrypt(reader.result, password);
+		 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encrypted');
   	};
 		
@@ -45,6 +46,7 @@ if(document.getElementById("encrypt").checked){
 			reader.onload = function(encodeDES){
 
                 var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password);
+		 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encrypted');
             
     		}
@@ -55,6 +57,7 @@ if(document.getElementById("encrypt").checked){
 			reader.onload = function(e){
 
                 var encrypted = CryptoJS.RC4.encrypt(e.target.result, password);
+		a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encrypted');
 		}
 	}
@@ -64,6 +67,7 @@ if(document.getElementById("encrypt").checked){
 			reader.onload = function(encoderabbit){
 
                 var encrypted = CryptoJS.rabbit.encrypt(e.target.result, password);
+		 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encrypted');
     		}
   	}
