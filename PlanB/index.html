@@ -17,7 +17,7 @@
 
             <div id="step1">
                 <div class="content">
-                    <h1>What do you want to do?</h1>
+                    <h1>Encrypt or Decrypt?</h1>
                     <a class="button encrypt green">Encrypt a file</a>
                     <a class="button decrypt magenta">Decrypt a file</a>
 
@@ -38,7 +38,7 @@
 
                 <div class="content if-encrypt">
                     <h1>Choose which file to encrypt</h1>
-                    <h2>An encrypted copy of the file will be generated. No data is sent to our server.</h2>
+                    
                     <a class="button browse blue">Browse</a>
 
                     <input type="file" id="encrypt-input" />
@@ -46,7 +46,7 @@
 
                 <div class="content if-decrypt">
                     <h1>Choose which file to decrypt</h1>
-                    <h2>Only files encrypted by this tool are accepted.</h2>
+                    
                     <a class="button browse blue">Browse</a>
 
                     <input type="file" id="decrypt-input" />
@@ -57,16 +57,16 @@
             <div id="step3">
 
                 <div class="content if-encrypt">
-                    <h1>Enter a pass phrase</h1>
-                    <h2>This phrase will be used as an encryption key. Write it down or remember it; you won't be able to restore the file without it. </h2>
+                    <h1>Enter a password</h1>
+                    
 
                     <input type="password" />
                     <a class="button process red">Encrypt!</a>
                 </div>
 
                 <div class="content if-decrypt">
-                    <h1>Enter the pass phrase</h1>
-                    <h2>Enter the pass phrase that was used to encrypt this file. It is not possible to decrypt it without it.</h2>
+                    <h1>Enter the password usecd to encrypt</h1>
+                    
 
                     <input type="password" />
                     <a class="button process red">Decrypt!</a>
@@ -77,7 +77,7 @@
             <div id="step4">
 
                 <div class="content">
-                    <h1>Your file is ready!</h1>
+                    <h1>File has been encrypted.</h1>
                     <a class="button download green">Download</a>
                 </div>
 
