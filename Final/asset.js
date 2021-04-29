@@ -70,36 +70,27 @@ $(function(){
             return;
         }
 
-        // The HTML5 FileReader object will allow us to read the 
-        // contents of the  selected file.
-
         let reader = new FileReader();
         
-                    let selectedValue = document.getElementById("select1").value;
+        let selectedValue = document.getElementById("select1").value;
 
+        // Encrypting
+        
         if(body.hasClass('encrypt')){
 
-            // Encrypt the file!
+            
             if(selectedValue === "aes"){
             reader.onload = function(e){
 
-                // Use the CryptoJS library and the AES cypher to encrypt the 
-                // contents of the file, held in e.target.result, with the password
+                // We used the CryptoJS library to encrypt contents of the file, held in e.target.result, with the password
 
                 let encrypted = CryptoJS.AES.encrypt(e.target.result, password);
-
-                // The download attribute will cause the contents of the href
-                // attribute to be downloaded when clicked. The download attribute
-                // also holds the name of the file that is offered for download.
 
                 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encryptedAes');
 
                 step(4);
             };
-
-            // This will encode the contents of the file into a data-uri.
-            // It will trigger the onload handler above, with the result
 
             reader.readAsDataURL(file);
         }
@@ -162,13 +153,6 @@ $(function(){
             reader.readAsDataURL(file);
             
         }
-
-
-
-
-
-
-
 
 
     }
@@ -282,12 +266,10 @@ $(function(){
         }
 
 
-    
-
     });
 
 
-    // Helper function that moves the viewport to the correct step div
+    // moves the viewport to the correct step div
 
     function step(i){
 
