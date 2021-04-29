@@ -47,6 +47,10 @@ password = input.val(); is assigning the password into the variable
              ^^^THIS IS THE SAME FOR ALL OF THE ENCRYPTIONS WITH MINOR FILE TAG CHANGES
  
    if (body.hasClass('decrypt')){ if decrypt was selected in the beginning it runs the decryption part of the Jquery
+   if(selectedValue === "des- tripledes"){ it runs the if function depending on which drop down selection that was made
+   let decrypted = CryptoJS.DES.decrypt(e.target.result, password)
+                                        .toString(CryptoJS.enc.Latin1); CryptoJS used for decryption 
+   
    
 
   
