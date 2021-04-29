@@ -18,6 +18,21 @@ make sure a file was selected in the JS.
  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script> is used to import cryptojs library
  
 CSS
+html - overflow:hidden - sets the desired behavior for an element's overflow
+a:visited - selector is used to select visited links
+a:hover -  used to select elements when you mouse over them
+selection, footer, header, aside - used to define/block different parts of a web page(top and bottom)
+body - tag defines the document's body
+#stage - allows multiple steps in html project/controls different styles in css
+stage > div - divide tag allows different sections within stages in html/css without <br> tags
+h1/h2 - in css, different tags for larger print text with customization
+content - main content css
+.content input - css for file upload
+body.encrypt/decrypt
+.button - main button design css
+.button:hover/before/green/etc. - buttons with included traits for individual css 
+step - background colors for each phase of webpage
+step3 input - password input box css
 
 
 Javascript
