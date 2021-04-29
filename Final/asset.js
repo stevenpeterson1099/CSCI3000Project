@@ -42,7 +42,7 @@ $(function(){
         file = e.target.files[0];
 
         if(file.size > 1024*1024){
-            alert('Please choose files smaller than 1mb, otherwise you may crash your browser. \nThis is a known issue. See the tutorial.');
+            alert('Choose a file smaller than 1mb');
             return;
         }
 
@@ -75,8 +75,6 @@ $(function(){
             return;
         }
 
-        // The HTML5 FileReader object will allow us to read the 
-        // contents of the  selected file.
 
         var reader = new FileReader();
         
@@ -88,8 +86,8 @@ $(function(){
             if(selectedValue === "aes"){
             reader.onload = function(e){
 
-                // Use the CryptoJS library and the AES cypher to encrypt the 
-                // contents of the file, held in e.target.result, with the password
+                
+                // we use CryptoJS to encrypt contents of the file, held in e.target.result, with the password
 
                 var encrypted = CryptoJS.AES.encrypt(e.target.result, password);
 
@@ -104,7 +102,7 @@ $(function(){
             };
 
             // This will encode the contents of the file into a data-uri.
-            // It will trigger the onload handler above, with the result
+            
 
             reader.readAsDataURL(file);
         }
