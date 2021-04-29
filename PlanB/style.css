@@ -166,10 +166,12 @@ body.decrypt .if-decrypt{
 
 .button.green{
     background-color:#00ad26;
+border-radius: 5px;
 }
 
 .button.red{
     background-color:#fd0000;
+	border-radius: 5px;
 }
 
 .button.blue{
