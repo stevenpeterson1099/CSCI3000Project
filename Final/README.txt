@@ -1,1 +1,2 @@
-hey Dr.K
+HTML
+<div id="stage"> is used 
