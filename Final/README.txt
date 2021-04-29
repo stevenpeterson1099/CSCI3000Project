@@ -67,7 +67,23 @@ password = input.val(); is assigning the password into the variable
                                         .toString(CryptoJS.enc.Latin1); CryptoJS used for decryption 
    
    
+ if(!/^data:/.test(decrypted)){ That is if the wrong cipher and or password is entered it alerts user
+ a.attr('href', decrypted); this is for creating a link to download the decrypted file
+ a.attr('download', file.name.replace('.encryptedDes','')); this is for downloading the file and for removing the added .encrypted file tag for all the ciphers
+ 
+ 
+ function step(i){
 
+        if(i == 1){
+            back.fadeOut();
+        }
+        else{
+            back.fadeIn();
+        }
+        
+    ^^ This is for the visual effect on the webpage
+    
+ stage.css('top',(-(i-1)*100)+'%'); This restarts it from stage 1
   
 
 
