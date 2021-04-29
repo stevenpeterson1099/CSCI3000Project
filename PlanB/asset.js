@@ -152,7 +152,58 @@ $(function(){
         }
 
 
-
+		if(selectedValue === "vigenere"){
+			console.log("If vigenere");
+			reader.readAsText(file);
+			var txt = reader.result;
+			console.log("txt");
+			var key = password;
+			console.log("key");
+			
+			//Vigenere uses capital letters only for message and key
+			txt.toUpperCase();
+			key.toUpperCase();
+			console.log("Uppercase");
+			
+			//object for converting letters to a number 0-25
+			var dict = {
+				'A':0,  'B':1,  'C':2,  'D':3,  'E':4,
+				'F':5,  'G':6,  'H':7,  'I':8,  'J':9,
+				'K':10, 'L':11, 'M':12, 'N':13, 'O':14,
+				'P':15, 'Q':16, 'R':17, 'S':18, 'T':19,
+				'U':20, 'V':21, 'W':22, 'X':23, 'Y':24,
+				'Z':25
+			};
+			console.log("dict");
+			
+			//generating key to match length of txt	
+			for(var i = 0; key.length < txt.length; i++){
+				if(i == txt.length)
+					i = 0; //start at begining of keyword
+				key += key.charAt(i);
+			}
+			console.log(key);
+			
+			//encrypting
+			var txtEncrypt = "";
+			for(var i = 0; i < txt.length; i++){
+				//algorithm encrypted char = (plaintext char + key char) mod 26
+				//chars are treated as numbers
+				//mod 26 has letters loop through alphabet with 26 letters
+				let num = (dict[txt.charAt(i)] + dict[key.charAt(i)]) % 26;
+				Object.keys(dict).forEach(function(letter) {
+					if(dict[letter] == num){
+						txtEncrypt += letter;
+					}
+				});
+			}
+			console.log(txt);
+			
+			//create file and have download
+			download(file.name, txtEncrypt);
+			console.log("download");
+			
+		}
 
 
 
@@ -277,3 +328,16 @@ $(function(){
     }
 
 });
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
