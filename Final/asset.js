@@ -269,7 +269,7 @@ $(function(){
     });
 
 
-    // moves the viewport to the correct step div
+
 
     function step(i){
 
@@ -280,10 +280,7 @@ $(function(){
             back.fadeIn();
         }
 
-        // Move the #stage div. Changing the top property will trigger
-        // a css transition on the element. i-1 because we want the
-        // steps to start from 1:
-
+       
         stage.css('top',(-(i-1)*100)+'%');
     }
 
