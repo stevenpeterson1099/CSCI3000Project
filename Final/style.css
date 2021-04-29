@@ -121,7 +121,6 @@ body.decrypt .if-decrypt{
 
 .button::before{
     content:'';
-    background: url(../assets/icons.svg) no-repeat;
     display: inline-block;
     width: 32px;
     height: 32px;
