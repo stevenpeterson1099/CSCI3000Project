@@ -168,16 +168,12 @@ body.decrypt .if-decrypt{
     background-color:#00ad26;
 }
 
-.button.magenta{
+.button.red{
     background-color:#fd0000;
 }
 
 .button.blue{
     background-color:#798dd7;
-}
-
-.button.red{
-    background-color: #c15645;
 }
 
 /* Styles for specific buttons */
