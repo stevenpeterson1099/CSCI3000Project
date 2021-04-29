@@ -3,12 +3,10 @@
 
     <head>
         <meta charset="utf-8"/>
-        <title>File Encryption Across Different Ciphers</title>
+        <title>JavaScript File Encryption App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-	    <link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
-        
-	    <!-- CSS page -->
-	    <link href="style.css" rel="stylesheet" />
+        <link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -19,7 +17,7 @@
 
             <div id="step1">
                 <div class="content">
-                    <h1>Encrypt or Decrypt?</h1>
+                    <h1>What do you want to do?</h1>
                     <a class="button encrypt green">Encrypt a file</a>
                     <a class="button decrypt magenta">Decrypt a file</a>
 
@@ -40,7 +38,7 @@
 
                 <div class="content if-encrypt">
                     <h1>Choose which file to encrypt</h1>
-                    
+                    <h2>An encrypted copy of the file will be generated. No data is sent to our server.</h2>
                     <a class="button browse blue">Browse</a>
 
                     <input type="file" id="encrypt-input" />
@@ -48,7 +46,7 @@
 
                 <div class="content if-decrypt">
                     <h1>Choose which file to decrypt</h1>
-                    
+                    <h2>Only files encrypted by this tool are accepted.</h2>
                     <a class="button browse blue">Browse</a>
 
                     <input type="file" id="decrypt-input" />
@@ -59,16 +57,16 @@
             <div id="step3">
 
                 <div class="content if-encrypt">
-                    <h1>Enter a password</h1>
-                   
+                    <h1>Enter a pass phrase</h1>
+                    <h2>This phrase will be used as an encryption key. Write it down or remember it; you won't be able to restore the file without it. </h2>
 
                     <input type="password" />
                     <a class="button process red">Encrypt!</a>
                 </div>
 
                 <div class="content if-decrypt">
-                    <h1>Enter the password used to encrypt</h1>
-                    
+                    <h1>Enter the pass phrase</h1>
+                    <h2>Enter the pass phrase that was used to encrypt this file. It is not possible to decrypt it without it.</h2>
 
                     <input type="password" />
                     <a class="button process red">Decrypt!</a>
@@ -79,7 +77,7 @@
             <div id="step4">
 
                 <div class="content">
-                    <h1>File encrypted. Click to download</h1>
+                    <h1>Your file is ready!</h1>
                     <a class="button download green">Download</a>
                 </div>
 
@@ -88,11 +86,9 @@
 
     </body>
 
-	<!-- JS Page -->
-    <script src="asset.js"></script>
-	
-	<!-- JS Libraries -->
+    <script src="tripledes.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="asset.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 
 </html>
