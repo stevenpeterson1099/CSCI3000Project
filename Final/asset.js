@@ -156,10 +156,10 @@ $(function(){
 
 
     }
+        // decrypting
         
         if (body.hasClass('decrypt')){
 
-            // Decrypt it!
             if(selectedValue === "des"){
 
             reader.onload = function(e){
