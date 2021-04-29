@@ -1,3 +1,7 @@
+Authors: Jake Walton, Rebecca Mullis, Shane Stephens, Steven Peterson, An Pham
+
+
+
 HTML
 <div id="stage"> is used for CSS implementation
 < id="step1-step4"> is used for telling the CSS what to display
