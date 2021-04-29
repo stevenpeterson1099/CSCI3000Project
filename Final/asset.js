@@ -1,7 +1,7 @@
 
 $(function(){
 
-    var body = $('body'),
+    let body = $('body'),
         stage = $('#stage'),
         back = $('a.back');
 
@@ -28,7 +28,7 @@ $(function(){
 
     // Set up events for the file inputs
 
-    var file = null;
+    let file = null;
 
     $('#step2').on('change', '#encrypt-input', function(e){
 
@@ -42,7 +42,7 @@ $(function(){
         file = e.target.files[0];
 
         if(file.size > 1024*1024){
-            alert('Choose a file smaller than 1mb');
+            alert('Please choose files smaller than 1mb, otherwise you may crash your browser. \nThis is a known issue. See the tutorial.');
             return;
         }
 
@@ -64,7 +64,7 @@ $(function(){
 
     $('a.button.process').click(function(){
 
-        var input = $(this).parent().find('input[type=password]'),
+        let input = $(this).parent().find('input[type=password]'),
             a = $('#step4 a.download'),
             password = input.val();
 
@@ -75,10 +75,12 @@ $(function(){
             return;
         }
 
+        // The HTML5 FileReader object will allow us to read the 
+        // contents of the  selected file.
 
-        var reader = new FileReader();
+        let reader = new FileReader();
         
-                    var selectedValue = document.getElementById("select1").value;
+                    let selectedValue = document.getElementById("select1").value;
 
         if(body.hasClass('encrypt')){
 
@@ -86,10 +88,10 @@ $(function(){
             if(selectedValue === "aes"){
             reader.onload = function(e){
 
-                
-                // we use CryptoJS to encrypt contents of the file, held in e.target.result, with the password
+                // Use the CryptoJS library and the AES cypher to encrypt the 
+                // contents of the file, held in e.target.result, with the password
 
-                var encrypted = CryptoJS.AES.encrypt(e.target.result, password);
+                let encrypted = CryptoJS.AES.encrypt(e.target.result, password);
 
                 // The download attribute will cause the contents of the href
                 // attribute to be downloaded when clicked. The download attribute
@@ -102,7 +104,7 @@ $(function(){
             };
 
             // This will encode the contents of the file into a data-uri.
-            
+            // It will trigger the onload handler above, with the result
 
             reader.readAsDataURL(file);
         }
@@ -110,7 +112,7 @@ $(function(){
         if(selectedValue === "des"){
             reader.onload = function(e){
 
-                var encrypted = CryptoJS.DES.encrypt(e.target.result, password);
+                let encrypted = CryptoJS.DES.encrypt(e.target.result, password);
 
                 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encryptedDes');
@@ -124,7 +126,7 @@ $(function(){
         if(selectedValue === "rc4"){
             reader.onload = function(e){
 
-                var encrypted = CryptoJS.RC4.encrypt(e.target.result, password);
+                let encrypted = CryptoJS.RC4.encrypt(e.target.result, password);
 
                 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encryptedRc4');
@@ -139,7 +141,7 @@ $(function(){
           if(selectedValue === "rabbit"){
             reader.onload = function(e){
 
-                var encrypted = CryptoJS.Rabbit.encrypt(e.target.result, password);
+                let encrypted = CryptoJS.Rabbit.encrypt(e.target.result, password);
 
                 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encryptedRabbit');
@@ -151,10 +153,10 @@ $(function(){
         }
 
 
-		if(selectedValue === "tripledes"){
-			reader.onload = function(e){
+        if(selectedValue === "tripledes"){
+            reader.onload = function(e){
 
-                var encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password);
+                let encrypted = CryptoJS.TripleDES.encrypt(e.target.result, password);
 
                 a.attr('href', 'data:application/octet-stream,' + encrypted);
                 a.attr('download', file.name + '.encryptedTdes');
@@ -163,8 +165,16 @@ $(function(){
             };
 
             reader.readAsDataURL(file);
-			
-		}
+            
+        }
+
+
+
+
+
+
+
+
 
     }
         
@@ -175,7 +185,7 @@ $(function(){
 
             reader.onload = function(e){
 
-                var decrypted = CryptoJS.DES.decrypt(e.target.result, password)
+                let decrypted = CryptoJS.DES.decrypt(e.target.result, password)
                                         .toString(CryptoJS.enc.Latin1);
 
                 if(!/^data:/.test(decrypted)){
@@ -196,7 +206,7 @@ $(function(){
         if (selectedValue === "aes") {
             reader.onload = function(e){
 
-                var decrypted = CryptoJS.AES.decrypt(e.target.result, password)
+                let decrypted = CryptoJS.AES.decrypt(e.target.result, password)
                                         .toString(CryptoJS.enc.Latin1);
 
                 if(!/^data:/.test(decrypted)){
@@ -217,7 +227,7 @@ $(function(){
         if (selectedValue === "rc4") {
              reader.onload = function(e){
 
-                var decrypted = CryptoJS.RC4.decrypt(e.target.result, password)
+                let decrypted = CryptoJS.RC4.decrypt(e.target.result, password)
                                         .toString(CryptoJS.enc.Latin1);
 
                 if(!/^data:/.test(decrypted)){
@@ -237,7 +247,7 @@ $(function(){
         if (selectedValue === "rabbit") {
             reader.onload = function(e){
 
-                var decrypted = CryptoJS.Rabbit.decrypt(e.target.result, password)
+                let decrypted = CryptoJS.Rabbit.decrypt(e.target.result, password)
                                         .toString(CryptoJS.enc.Latin1);
 
                 if(!/^data:/.test(decrypted)){
@@ -253,11 +263,11 @@ $(function(){
 
             reader.readAsText(file);
         }
-		
-		 if (selectedValue === "tripledes") {
+        
+         if (selectedValue === "tripledes") {
             reader.onload = function(e){
 
-                var decrypted = CryptoJS.TripleDES.decrypt(e.target.result, password)
+                let decrypted = CryptoJS.TripleDES.decrypt(e.target.result, password)
                                         .toString(CryptoJS.enc.Latin1);
 
                 if(!/^data:/.test(decrypted)){
@@ -275,6 +285,9 @@ $(function(){
         }
 
         }
+
+
+    
 
     });
 
