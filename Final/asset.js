@@ -166,14 +166,6 @@ $(function(){
 			
 		}
 
-
-
-
-
-
-
-
-
     }
         
         if (body.hasClass('decrypt')){
@@ -283,9 +275,6 @@ $(function(){
         }
 
         }
-
-
-    
 
     });
 
