@@ -159,27 +159,6 @@ body.decrypt .if-decrypt{
     width:216px;
 }
 
-.button.encrypt::before{
-    background-position: 0 0;
-}
-
-.button.decrypt::before{
-    background-position: -96px 0;
-}
-
-.button.browse::before{
-    background-position: -240px 0;
-}
-
-.button.process::before{
-    background-position: -142px 0;
-}
-
-.button.download:before{
-    background-position:-48px 0;
-}
-
-
 /*-------------------------
 	The steps
 --------------------------*/
