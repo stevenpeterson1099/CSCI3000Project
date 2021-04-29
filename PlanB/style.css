@@ -38,7 +38,7 @@ section, footer, header, aside{
 
 
 body{
-    font:'Raleway', 15px/1.3 sans-serif;
+    font:15px/1.3 'Raleway', sans-serif;
     color: #fff;
     width:100%;
     height:100%;
@@ -165,13 +165,11 @@ body.decrypt .if-decrypt{
 }
 
 .button.green{
-    background-color:#00ad26;
-border-radius: 5px;
+    background-color:#92cd84;
 }
 
 .button.magenta{
-    background-color:#fd0000;
-	border-radius: 5px;
+    background-color:#e661b7;
 }
 
 .button.blue{
@@ -338,3 +336,4 @@ footer #tzine-actions iframe{
     float: left;
     margin-top: 11px;
 }
+
