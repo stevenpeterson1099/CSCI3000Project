@@ -90,6 +90,8 @@ password = input.val(); is assigning the password into the variable
     ^^ This is for the visual effect on the webpage
     
  stage.css('top',(-(i-1)*100)+'%'); This restarts it from stage 1
+ 
+ References For A.attr: https://learn.jquery.com/using-jquery-core/attributes/ & https://stackoverflow.com/questions/13912198/anchors-download-property-is-not-working-on-some-pages-gmail/13931279#13931279
   
 
 
