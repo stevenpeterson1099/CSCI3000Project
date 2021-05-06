@@ -15,7 +15,8 @@ HTML
 <input type="file" id="encrypt-input"> & <input type="file" id="decrypt-input"> used to show that file was the input type a file and to 
 make sure a file was selected in the JS.
 <div class="content if-encrypt"> shows the corresponding CSS if the user has selected encyrpt.
-<input type="password"> for the password to encrypt/decrypt
+<input type="password"> for the password to encrypt/decrypt.                    
+<input type="checkbox" onclick="visible()"> for the show password.
 <a class="button download green">Download</a> link to download the file to users computer
  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> is used to import Jquery library
  <script src="asset.js"></script> used to import our JS
@@ -40,6 +41,7 @@ step3 input - password input box css
 
 
 Javascript
+function visible() 1 and 2 is to make the password visible when the user enter in password. 
 $(function(){ its used for running the entire javascript
 let body=$('body'), body is used for the body of the HTML it is easier than typing $('body')
 stage = $('#stage'), stage is used for the stages
