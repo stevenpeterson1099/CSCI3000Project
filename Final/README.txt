@@ -1,4 +1,4 @@
-Authors: Jake Walton, Rebecca Mullis, Shane Stephens, Steven Peterson, An Pham
+Authors: Jacob Walton, Rebecca Mullis, Shane Stephens, Steven Peterson, An Pham
 
 
 
