@@ -16,7 +16,7 @@ HTML
 make sure a file was selected in the JS.
 <div class="content if-encrypt"> shows the corresponding CSS if the user has selected encyrpt.
 <input type="password"> for the password to encrypt/decrypt.                    
-<input type="checkbox" onclick="visible()"> for the show password.
+<input type="checkbox" onclick="visible()"> for the password to be visible with javacript function.
 <a class="button download green">Download</a> link to download the file to users computer
  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> is used to import Jquery library
  <script src="asset.js"></script> used to import our JS
